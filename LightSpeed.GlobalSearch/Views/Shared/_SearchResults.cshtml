@@ -1,12 +1,22 @@
 ﻿@model  LightSpeed.GlobalSearch.Models.SearchResults
 
 <div class="list-group list-group-hover">
-    <a href="#" class="list-group-item list-group-item-action disabled" style="color: lightgray"><b>Users</b></a>
+
+    @if (Model.Users.Any())
+    {
+        <a href="#" class="list-group-item list-group-item-action disabled" style="color: lightgray"><b>Users</b></a>
+    }
+    
     @foreach (var item in Model.Users)
     {
         <a href="users/@item.Id/show" class="list-group-item list-group-item-action ">@item.Value</a>
     }
-    <a href="#" class="list-group-item list-group-item-action disabled" style="color: lightgray"><b>Groups</b></a>
+
+    @if (Model.Groups.Any())
+    {
+        <a href="#" class="list-group-item list-group-item-action disabled" style="color: lightgray"><b>Groups</b></a>
+    }
+    
     @foreach (var item in Model.Groups)
     {
         <a href="groups/@item.Id/show" class="list-group-item list-group-item-action list-group-hover">@item.Value</a>
